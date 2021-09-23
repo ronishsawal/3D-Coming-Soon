@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background: black;
+            overflow: hidden;
+        }
+
+        .background {
+            margin: 0;
+            width: 100vw;
+            max-height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .scroll {
+            margin: 0;
+            width: 50px;
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateY(-50%);
+        }
+
+        .logo {
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            width: max-content;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .logo>img{
+            width: max-content;
+            height: max-content;
+        }
+
+        .rot {
+            position: absolute;
+            width: auto;
+            transform: translate(90%, -100%);
+            top: 0;
+            right: 0;
+            /* margin-left: auto; */
+            -webkit-animation: spin 6s linear infinite;
+            -moz-animation: spin 6s linear infinite;
+            animation: spin 6s linear infinite;
+        }
+
+        @-moz-keyframes spin {
+            100% {
+                -moz-transform: translate(90%, -100%) rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            100% {
+                -webkit-transform: translate(90%, -100%) rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                -webkit-transform: translate(90%, -100%) rotate(360deg);
+                transform: translate(90%, -100%) rotate(360deg);
+            }
+        }
+
+        .outer-coming {
+            position: absolute;
+            bottom: 15vh;
+            /* overflow: hidden;
+            height: 30vh; */
+        }
+
+        .coming {
+            transform: rotate(-5deg);
+            overflow: hidden;
+        }
+
+        .marquee {
+            width: 100vw;
+            margin: 0 auto;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee img {
+            display: inline-block;
+            position: relative;
+            left: 100%;
+            margin: 0;
+            padding: 0;
+            animation: marquee 10s linear infinite;
+        }
+
+        .marquee img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .marquee img:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .marquee img:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .marquee img:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .marquee img:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .marquee img:nth-child(6) {
+            animation-delay: 1.0s;
+        }
+
+
+        @keyframes marquee {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+
+        @media (min-width:320px) {
+            /* smartphones, iPhone, portrait 480x320 phones */
+        }
+
+        @media (min-width:481px) {
+            /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+        }
+
+        @media (min-width:641px) {
+            /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+        }
+
+        @media (max-width:961px) {
+            /* tablet, landscape iPad, lo-res laptops ands desktops */
+            .logo{
+                width: max-content;
+            }
+            .logo > img:nth-child(1){
+                width: 40vw;
+            }
+            .rot{
+                width: 13vw!important;
+            }
+            .scroll{
+                width: 30px;
+            }
+        }
+
+        @media (min-width:1025px) {
+            /* big landscape tablets, laptops, and desktops */
+        }
+
+        @media (min-width:1281px) {
+            /* hi-res laptops and desktops */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./background.svg" alt="" class="background">
+        <img src="./scroll.svg" alt="" class="scroll">
+        <div class="logo">
+            <img src="./logo.svg" alt="">
+            <img src="./rot.svg" alt="" class="rot">
+        </div>
+        <div class="outer-coming">
+            <div class="coming">
+                <p class="marquee">
+                    <img src="./coming_soon_lite.svg" alt="">
+                    <img src="./coming_soon_dark.svg" alt="">
+                    <img src="./coming_soon_lite.svg" alt="">
+                    <img src="./coming_soon_dark.svg" alt="">
+                    <!-- <img src="./coming_soon_lite.svg" alt="">
+                    <img src="./coming_soon_dark.svg" alt=""> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
