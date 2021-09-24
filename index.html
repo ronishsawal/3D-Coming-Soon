@@ -441,7 +441,7 @@
         <div class="overlay no-mobile overlay-animation">
             
         </div>
-        <div class="overlay-center no-mobile"></div>
+        <!-- <div class="overlay-center no-mobile"></div> -->
         <img src="./background.svg" alt="" class="background">
         <img src="./scroll.svg" alt="" class="scroll">
         <div class="logo">
@@ -483,13 +483,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script>
         let overlay = document.querySelector(".overlay")
-        let overlayCenter = document.querySelector(".overlay-center")
+        // let overlayCenter = document.querySelector(".overlay-center")
         let div1 = document.querySelector("#div1")
         let div2 = document.querySelector("#div2")
         let rot = document.querySelector(".rot")
-        // rot.classList.add('rot-animation')
         gsap.set(rot, { x: "90%", y: "-100%" })
-        gsap.to(rot, { rotation: 360, transformOrigin: "50% 50%", repeat: -1, duration: 4, ease: "linear" })
+        let anima = gsap.to(rot, { rotation: 360, transformOrigin: "50% 50%", repeat: -1, duration: 4, ease: "linear" })
+        rot.addEventListener('mouseover', () => {
+            anima.pause()
+        })
+        rot.addEventListener('mouseleave', () => {
+            anima.play()
+        })
+
+        // rot.classList.add('rot-animation')
+     
         gsap.fromTo(div1, {
             x: "0%"
         }, {
@@ -530,10 +538,10 @@
                 left: event.pageX,
                 top: event.pageY
             })
-            gsap.to(overlayCenter, 0.1, {
-                left: event.pageX,
-                top: event.pageY
-            })
+            // gsap.to(overlayCenter, 0.1, {
+            //     left: event.pageX,
+            //     top: event.pageY
+            // })
         }
 
         let mobileAndTabletCheck = function () {
@@ -555,13 +563,13 @@
                 window.removeEventListener("mouseover", overlayChange)
                 window.removeEventListener("wheel", overlayChange)
                 overlay.classList.add("no-mobile")
-                overlayCenter.classList.add("no-mobile")
+                // overlayCenter.classList.add("no-mobile")
             }
             else {
                 window.addEventListener("mousemove", overlayChange);
                 window.addEventListener("wheel", overlayChange);
                 overlay.classList.remove("no-mobile")
-                overlayCenter.classList.remove("no-mobile")
+                // overlayCenter.classList.remove("no-mobile")
 
             }
         }
