@@ -518,6 +518,10 @@
         if (mobileAndTabletCheck()) {
             nice = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${nice}px`);
+            window.addEventListener("resize", function () {
+                nice = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${nice}px`);
+            }, false);
         }
 
         let resizeChanges = () => {
@@ -534,6 +538,10 @@
         }
         resizeChanges();
         window.onresize = resizeChanges;
+
+
+
+
     </script>
     <script>
 
